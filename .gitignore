@@ -1,0 +1,24 @@
+.DS_Store
+node_modules
+/build
+/dist
+/.next
+/out
+.env*
+
+# Rust
+/target
+**/*.rs.bk
+vault-app/target
+withdraw-app/target
+
+# Solana
+test-ledger
+.anchor
+vault-keypair.json
+withdraw-keypair.json
+solana-release
+solana-release-x86_64-unknown-linux-gnu.tar.bz2
+anchor
+anchor-cli-x86_64-unknown-linux-gnu.tar.gz
+anchor_install.log
