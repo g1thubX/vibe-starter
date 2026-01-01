@@ -44,6 +44,29 @@ anchor deploy
 - **Vault 账户**: 程序会自动为每个用户创建一个派生账户（PDA），其种子为 `[b"vault", user_pubkey]`。
 - **自动初始化**: 如果用户的保险库尚未创建，程序会在第一次存款时自动初始化它（使用了 `init_if_needed`）。
 
+### 5. 前端页面使用
+本项目在根目录下提供了一个 Next.js 前端页面，方便您直接在浏览器中测试存款功能。
+
+1. **安装前端依赖**:
+   在项目根目录下运行：
+   ```bash
+   npm install
+   ```
+
+2. **启动前端开发服务器**:
+   ```bash
+   npm run dev
+   ```
+
+3. **访问页面**:
+   打开浏览器访问 [http://localhost:3000](http://localhost:3000)。
+
+4. **连接钱包**:
+   点击 "Select Wallet" 并连接您的 Solana 钱包（如 Phantom，确保钱包切换到 Localnet 或 Devnet）。
+
+5. **执行存款**:
+   输入想要存入的 SOL 数量，点击 "Deposit" 按钮并确认交易。
+
 ### 开发者测试
 您可以编写测试脚本来验证功能，或者参考 `tests/` 目录下的测试用例。执行测试：
 ```bash

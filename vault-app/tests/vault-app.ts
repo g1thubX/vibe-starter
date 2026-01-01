@@ -18,7 +18,7 @@ describe("vault-app", () => {
 
     const amount = new anchor.BN(1 * anchor.web3.LAMPORTS_PER_SOL);
 
-    const tx = await program.methods
+    await program.methods
       .deposit(amount)
       .accounts({
         user: user,

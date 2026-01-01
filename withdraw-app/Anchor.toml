@@ -5,7 +5,7 @@ seeds = false
 skip-lint = false
 
 [programs.localnet]
-withdraw_app = "CKW98PQD3yDeBQmGe4qNeurbbrx8uA6W4kpiGco7BMZy"
+withdraw_app = "2669p3Q1tSrw1wGVJPs6w6nn8CxWmhdSWSHN5D7Fhgbu"
 
 [registry]
 url = "https://api.apr.dev"

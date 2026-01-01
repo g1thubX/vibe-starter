@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Solana Vault DApp
 
-## Getting Started
+这是一个包含 Solana Anchor 程序和 Next.js 前端的完整示例。
 
-First, run the development server:
+## 项目结构
 
+- `vault-app/`: 存款程序 (Anchor)
+- `withdraw-app/`: 取款程序 (Anchor)
+- `app/`: Next.js 前端页面
+
+## 快速开始
+
+### 1. 环境准备
+确保已安装 Rust, Solana CLI 和 Anchor。
+
+### 2. 启动本地验证节点
+在独立终端运行：
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+solana-test-validator
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 3. 部署程序
+进入 `vault-app` 或 `withdraw-app` 目录并部署：
+```bash
+cd vault-app
+anchor build
+anchor deploy
+```
+*(注意：两个程序已配置为使用相同的 Program ID 以共享同一个保险库账户)*
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 4. 启动前端
+在项目根目录下运行：
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 5. 使用前端验证功能
+1. 打开 [http://localhost:3000](http://localhost:3000)。
+2. 连接您的 Solana 钱包（确保切换到 Localnet）。
+3. 输入金额并点击 **Deposit** 存入 SOL。
+4. 观察页面上的 Vault Balance 增加。
+5. 输入金额并点击 **Withdraw** 提取 SOL。
+6. 观察页面上的 Vault Balance 减少。
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 详细指南
+- [存款程序指南](./vault-app/README.md)
+- [取款程序指南](./withdraw-app/README.md)

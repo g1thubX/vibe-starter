@@ -1,7 +1,6 @@
 import * as anchor from "@coral-xyz/anchor";
 import { Program } from "@coral-xyz/anchor";
 import { WithdrawApp } from "../target/types/withdraw_app";
-import { expect } from "chai";
 
 describe("withdraw-app", () => {
   const provider = anchor.AnchorProvider.env();
@@ -31,8 +30,9 @@ describe("withdraw-app", () => {
         })
         .rpc();
       console.log("Withdrawal transaction signature", tx);
-    } catch (e) {
-      console.log("Withdrawal failed (possibly no funds in vault):", e.message);
+    } catch (e: unknown) {
+      const errorMessage = e instanceof Error ? e.message : String(e);
+      console.log("Withdrawal failed (possibly no funds in vault):", errorMessage);
     }
   });
 });
